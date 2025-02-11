@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+           /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .parent1 {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2.5em;
+        color: #4CAF50;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 1.5em;
+        color: #333;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 5px;
+    }
+
+    p {
+        font-size: 1.1em;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    /* Efecto hover para los títulos */
+    h3:hover {
+        color: #4CAF50;
+        transition: color 0.3s ease;
+    }
+
+    /* Estilo para los párrafos */
+    p {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        border-left: 4px solid #4CAF50;
+    }
+
+    /* Efecto hover para los párrafos */
+    p:hover {
+        background-color: #e0e0e0;
+        transition: background-color 0.3s ease;
+    }
+
+        
+        /* Estilos para los divs */
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+    
+        .parent div {
+            padding: 20px;
+            border: 2px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        /* Estilo para resaltar los divs con eventos */
+        .div1, .div2, .div3, .div4, .div5, .div6 {
+            background-color: #f0f0f0;
+        }
+    
+        .div1:hover, .div2:hover, .div3:hover, .div4:hover, .div5:hover, .div6:hover {
+            background-color: #e0e0e0;
+        }
+    
+        /* Estilo para el input */
+        input {
+            padding: 5px;
+            margin: 5px 0;
+        }
+    
+        /* Estilo para el botón */
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent1">
+    <h1>acerca de mi</h1>
+    <h3>persona a quien admiro</h3>
+    <p>una de las que mas admiro es a mi padre tanto por como es como persona como la costacia que tiene para hacer las cosas</p>
+    <h3>Meta que quiero lograr a futuro</h3>
+    <p>pues primero que nada egresar como procional de la carrera de ingienieria en sistemas y poder seguir
+    aprendiendo mas de los lenguajes de programacion como de la tegnologias emergentes </p>
+    <h3>Género musical favorito</h3>
+    <p>baldas,baldas</p>
+    <h3>Algo sin lo que no podría vivir</h3>
+    <p>sin el interner no podria vivir</p>
+    <h3>Un talento que posea</h3>
+    <p>jugar videojuegos</p>
+    <h3>Mi animal favorito</h3>
+    <p>los perros</p>
+
+    </div>
+
+
+
+
+
+    
+        
+        <div class="parent">
+            <div class="div1">
+                <input id="miInput" type="text" placeholder="Escribe y pulsa Enter cuando acabes">
+                <p>este eventonto se activa al escribir algo y dale un click o selecionarlo </p>
+            </div>
+            <div class="div2">
+                <input type="number" id="valor1"  required>
+                <input type="number" id="valor2" required>
+                <p id="mensaje1" style="color: red;"></p> 
+                <button onclick="calcular()">suma</button>
+                
+            </div>
+            <div class="div3" onmouseover="mOver(this)" onmouseout="mOut(this)">
+                pasar el mause sobre mi
+            </div>
+            <div class="div4" onmousedown="mDown(this)" onmouseup="mUp(this)">precionar</div>
+            <div class="div5" ondblclick="dobleClic(this)" >Haz doble clic aquí.</div>
+            <div class="div6" onclick="cambiarColor(this)" > Haz clic para cambiar mi color.</div>
+        </div>
+    
+            
+
+        
+    
+
+    <script>
+
+        // Functiones
+
+        function mDown(obj) {
+            obj.style.backgroundColor = "#1ec5e5";
+            obj.innerHTML = "mantener";
+        }
+
+        function mUp(obj) {
+            obj.style.backgroundColor="#D94A38";
+            obj.innerHTML="percionar";
+        }
+
+        function mOver(obj) {
+            obj.innerHTML = "gracias"
+        }
+
+        function mOut(obj) {
+        obj.innerHTML = "poner encima el mouse "
+        }
+        function calcular() {
+            let valor1 = parseFloat(document.getElementById("valor1").value);
+            let valor2 = parseFloat(document.getElementById("valor2").value);
+            let resultado = valor1 + valor2;
+            document.getElementById("mensaje1").innerHTML = "La suma es: " + resultado;
+        }
+        function instrucciones(evento) {
+            // Filtra por la tecla Enter
+            if(evento.code === "Enter") {
+            alert("haz pulzado Enter");
+            }
+        }
+
+        function dobleClic(obj) {
+        obj.style.backgroundColor = "#FFD700"; // Cambia a color dorado
+        obj.innerHTML = "¡Doble clic detectado!";
+        }
+
+        function cambiarColor(obj) {
+        const colores = ["#FF5733", "#33FF57", "#3357FF", "#F933FF"];
+        const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+        obj.style.backgroundColor = colorAleatorio;
+        obj.innerHTML = "Color cambiado";
+        }
+
+        document.getElementById("miInput").addEventListener("keydown", function(event) {
+        console.log("Tecla presionada (keydown): " + event.key);
+        });
+
+        // Eventos
+        document.body.addEventListener("keydown", instrucciones);
+
+    </script>
+
+    
+</body>
+</html>
